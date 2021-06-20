@@ -12,19 +12,17 @@ const Search = () => {
       <Link to="/" className="logo-section">
         <FilmIcon className="film-icon" /> MovieApp
       </Link>
-      <div className="search-section">
-        <form onSubmit={context.handleSubmit}>
-          <input
-            required
-            placeholder="Search a Movie..."
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-          />
-          <button className="search-button" type="submit">
-            Search
-          </button>
-        </form>
-      </div>
+      <form className="search-section" onSubmit={context.handleSubmit}>
+        <input
+          required
+          placeholder="Search a Movie..."
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+        <button className="search-button" type="submit">
+          Search
+        </button>
+      </form>
       <Link to="/favorites" className="favorites-div">
         Favorites
       </Link>
