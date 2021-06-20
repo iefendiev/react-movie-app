@@ -20,10 +20,10 @@ const Search = () => {
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
           />
+          <button className="search-button" type="submit">
+            Search
+          </button>
         </form>
-        <button className="search-button" type="submit">
-          Search
-        </button>
       </div>
       <Link to="/favorites" className="favorites-div">
         Favorites
