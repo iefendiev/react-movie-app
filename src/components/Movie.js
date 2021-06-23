@@ -14,14 +14,26 @@ const Movie = ({ movie, isFavorite }) => {
     return found;
   };
 
+  window.localStorage.setItem(
+    'FavoriteMovies',
+    JSON.stringify(context.favorites)
+  );
+
   const handleFavorite = (movie) => {
     if (!context.favorites.includes(movie)) {
       context.setFavorites([...context.favorites, findItem(movie)]);
+      window.localStorage.setItem(
+        'FavoriteMovies',
+        JSON.stringify(context.favorites)
+      );
     } else {
       const favArray = context.favorites.filter(
         (film) => film.imdbID !== movie.imdbID
       );
-      context.setFavorites(favArray);
+      context.setFavorites(() => {
+        window.localStorage.setItem('FavoriteMovies', JSON.stringify(favArray));
+        return favArray;
+      });
     }
   };
 

@@ -6,7 +6,7 @@ const Movies = () => {
   const context = useContext(MovieContext);
 
   const favoriteFunc = (imdbID) => {
-    return context.favorites.find((item) => item.imdbID === imdbID);
+    return context.favorites?.find((item) => item.imdbID === imdbID);
   };
 
   return context.movies ? (

@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MovieContext } from './context/MovieContext';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Search from './components/Search';
@@ -10,6 +10,13 @@ import MovieDetail from './components/MovieDetail';
 function App() {
   const [movies, setMovies] = useState([]);
   const [favorites, setFavorites] = useState([]);
+  const favMovies = JSON.parse(window.localStorage.getItem('FavoriteMovies'));
+
+  useEffect(() => {
+    if (favMovies) {
+      setFavorites(favMovies);
+    }
+  }, []);
 
   const fetchMovies = async (searchText) => {
     const res = await fetch(
