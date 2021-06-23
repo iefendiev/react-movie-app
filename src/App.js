@@ -10,9 +10,9 @@ import MovieDetail from './components/MovieDetail';
 function App() {
   const [movies, setMovies] = useState([]);
   const [favorites, setFavorites] = useState([]);
-  const favMovies = JSON.parse(window.localStorage.getItem('FavoriteMovies'));
 
   useEffect(() => {
+    const favMovies = JSON.parse(window.localStorage.getItem('FavoriteMovies'));
     if (favMovies) {
       setFavorites(favMovies);
     }
